@@ -5,14 +5,15 @@ import {
   WebStorageStateStore,
 } from 'oidc-client';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OpenidService {
-  private userManager: UserManager;
+  private manager: UserManager;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     const hostUrl = environment.appURL;
 
     const settings = {
@@ -30,10 +31,25 @@ export class OpenidService {
         store: localStorage,
       }),
     } as UserManagerSettings;
-    this.userManager = new UserManager(settings);
+    this.manager = new UserManager(settings);
   }
 
   login(): void {
-    this.userManager.signinRedirect();
+    this.manager.signinRedirect();
+  }
+
+  onInit(): void {
+    this.manager.signinRedirectCallback().then((user) => {
+      this.authService.user = user;
+    });
+
+    this.manager.getUser().then((user) => {
+      if (user) this.authService.user = user;
+    });
+  }
+
+  logout(): void {
+    this.authService.clearUser();
+    this.manager.signoutRedirect();
   }
 }

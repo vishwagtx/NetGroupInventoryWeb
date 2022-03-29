@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OpenidService } from './core/services/openid.service';
 
 @Component({
@@ -6,12 +6,12 @@ import { OpenidService } from './core/services/openid.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'Inventory System';
-
+export class AppComponent implements OnInit {
   constructor(private opid: OpenidService) {}
 
-  login(): void {
-    this.opid.login();
+  ngOnInit(): void {
+    this.opid.onInit();
   }
+
+  title = 'Inventory System';
 }
