@@ -21,7 +21,7 @@ export class OpenidService {
       authority: environment.openId.authority,
       redirect_uri: `${hostUrl}`,
       response_type: 'id_token token',
-      scope: 'openid profile i_api',
+      scope: 'openid profile app_api',
       post_logout_redirect_uri: `${hostUrl}`,
       automaticSilentRenew: true,
       silent_redirect_uri: `${hostUrl}/silent_renew`,
@@ -40,6 +40,7 @@ export class OpenidService {
 
   onInit(): void {
     this.manager.signinRedirectCallback().then((user) => {
+      this.authService.signInUser(user);
       this.authService.user = user;
     });
 

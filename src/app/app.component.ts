@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from './core/services/auth.service';
 import { OpenidService } from './core/services/openid.service';
 
 @Component({
@@ -6,12 +8,18 @@ import { OpenidService } from './core/services/openid.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  constructor(private opid: OpenidService) {}
+export class AppComponent implements OnInit, OnDestroy {
+  constructor(private opid: OpenidService, private authService: AuthService) {}
+
+  private sub: Subscription | null = null;
+
+  title = 'Inventory System';
 
   ngOnInit(): void {
     this.opid.onInit();
+    this.sub = this.authService.signInPostActions$().subscribe();
   }
-
-  title = 'Inventory System';
+  ngOnDestroy(): void {
+    if (this.sub) this.sub.unsubscribe();
+  }
 }

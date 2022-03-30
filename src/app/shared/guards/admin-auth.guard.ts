@@ -23,6 +23,6 @@ export class AdminAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.auth.isAuthenticated();
+    return this.auth.isAdministrator();
   }
 }

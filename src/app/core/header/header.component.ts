@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../services/auth.service';
 import { OpenidService } from '../services/openid.service';
 
@@ -18,5 +19,10 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.opid.logout();
+  }
+
+  register(): void {
+    const registerURL = `${environment.openId.authority}/account/register?returnUrl=${environment.appURL}/registerCallback`;
+    document.location.href = registerURL;
   }
 }
