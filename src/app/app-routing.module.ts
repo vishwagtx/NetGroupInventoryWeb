@@ -14,6 +14,7 @@ const routes: Routes = [
     path: 'registerCallback',
     component: RegisterCallbackComponent,
   },
+  { path: 'inventory', loadChildren: () => import('./inventory/inventory.module').then(m => m.InventoryModule) },
 ];
 
 @NgModule({

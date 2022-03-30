@@ -46,9 +46,9 @@ export class AuthService {
       tap((user) => {
         if (!user) return;
 
-        if (user.profile?.role === this.administratorRole) {
+        if (user.profile?.role === this.administratorRole)
           this.router.navigate(['admin']);
-        }
+        else this.router.navigate(['inventory']);
       })
     );
   }
