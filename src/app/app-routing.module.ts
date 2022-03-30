@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterCallbackComponent } from './register-callback/register-callback.component';
 import { AdminAuthGuard } from './shared/guards/admin-auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,12 @@ const routes: Routes = [
     path: 'registerCallback',
     component: RegisterCallbackComponent,
   },
-  { path: 'inventory', loadChildren: () => import('./inventory/inventory.module').then(m => m.InventoryModule) },
+  {
+    path: 'inventory',
+    loadChildren: () =>
+      import('./inventory/inventory.module').then((m) => m.InventoryModule),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
