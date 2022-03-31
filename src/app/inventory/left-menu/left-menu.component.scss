@@ -1,0 +1,20 @@
+.menu-list {
+  li {
+    border-radius: 7px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    cursor: pointer;
+
+    a {
+      color: #222;
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    :hover {
+      background-color: #1976d2;
+    }
+  }
+}

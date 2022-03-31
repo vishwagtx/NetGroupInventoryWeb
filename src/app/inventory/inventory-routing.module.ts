@@ -4,7 +4,13 @@ import { InventoryComponent } from './inventory.component';
 import { StorageLevelFormComponent } from './storage-levels/storage-level-form/storage-level-form.component';
 import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
 
-const routes: Routes = [{ path: '', component: StorageLevelsComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: InventoryComponent,
+    children: [{ path: 'storage-levels', component: StorageLevelsComponent }],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

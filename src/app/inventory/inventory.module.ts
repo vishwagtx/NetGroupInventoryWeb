@@ -9,12 +9,14 @@ import { StorageLevelsService } from './services/storage-levels.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from '../shared/interceptors/app-http-interceptor';
 import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
+import { LeftMenuComponent } from './left-menu/left-menu.component';
 
 @NgModule({
   declarations: [
     InventoryComponent,
     StorageLevelFormComponent,
     StorageLevelsComponent,
+    LeftMenuComponent,
   ],
   providers: [
     ItemsService,
