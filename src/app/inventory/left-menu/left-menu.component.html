@@ -1,5 +1,22 @@
 <ul class="menu-list">
-  <li><a>Items</a></li>
-  <li><a>Storage Levels</a></li>
-  <li><a>Inventory</a></li>
+  <li>
+    <a [routerLink]="['/inventory/items']" routerLinkActive="router-link-active"
+      >Items</a
+    >
+  </li>
+  <li>
+    <a
+      [routerLink]="['/inventory/storage-levels']"
+      routerLinkActive="router-link-active"
+      >Storage Levels</a
+    >
+  </li>
+  <li>
+    <a
+      [routerLink]="['/inventory']"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Inventory</a
+    >
+  </li>
 </ul>
