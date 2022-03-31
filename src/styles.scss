@@ -58,7 +58,6 @@ p {
 }
 
 .content {
-  display: flex;
   margin: 82px auto 32px;
   padding: 0 16px;
   max-width: 960px;
@@ -290,4 +289,13 @@ svg#clouds {
     display: none;
     visibility: hidden;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

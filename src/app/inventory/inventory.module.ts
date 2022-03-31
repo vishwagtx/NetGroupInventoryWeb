@@ -8,9 +8,14 @@ import { SharedModule } from '../shared/shared.module';
 import { StorageLevelsService } from './services/storage-levels.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from '../shared/interceptors/app-http-interceptor';
+import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
 
 @NgModule({
-  declarations: [InventoryComponent, StorageLevelFormComponent],
+  declarations: [
+    InventoryComponent,
+    StorageLevelFormComponent,
+    StorageLevelsComponent,
+  ],
   providers: [
     ItemsService,
     StorageLevelsService,

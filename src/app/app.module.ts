@@ -10,6 +10,7 @@ import { RegisterCallbackComponent } from './register-callback/register-callback
 import { AdminAuthGuard } from './shared/guards/admin-auth.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { SharedModule } from './shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, RegisterCallbackComponent],
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     CoreModule,
     AppRoutingModule,
+    NoopAnimationsModule,
   ],
   providers: [
     AdminAuthGuard,

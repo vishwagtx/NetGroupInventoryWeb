@@ -11,6 +11,12 @@ export class StorageLevelsService {
   constructor(private http: HttpClient) {}
 
   create(level: IStorageLevel): Observable<any> {
-    return this.http.post(`${this.baseUrl}api/StoargeLevels`, level);
+    return this.http.post(`${this.baseUrl}api/StorageLevels`, level);
+  }
+
+  get(): Observable<Array<IStorageLevel>> {
+    return this.http.get<Array<IStorageLevel>>(
+      `${this.baseUrl}api/StorageLevels`
+    );
   }
 }
