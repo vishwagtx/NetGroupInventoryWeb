@@ -1,0 +1,10 @@
+.item-layout,
+.item-grid,
+table {
+  width: 100%;
+}
+
+.add-item {
+  display: flex;
+  justify-content: flex-end;
+}
