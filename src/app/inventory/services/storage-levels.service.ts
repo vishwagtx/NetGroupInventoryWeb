@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IReponse } from 'src/app/shared/models/response';
 import { environment } from 'src/environments/environment';
-import { IStorageLevel } from '../dtos/storage-level';
+import { IStorageLevel } from '../models/storage-level';
 
 @Injectable()
 export class StorageLevelsService {
@@ -10,13 +11,27 @@ export class StorageLevelsService {
 
   constructor(private http: HttpClient) {}
 
-  create(level: IStorageLevel): Observable<any> {
-    return this.http.post(`${this.baseUrl}api/StorageLevels`, level);
+  create(level: IStorageLevel): Observable<IReponse<number>> {
+    return this.http.post<IReponse<number>>(
+      `${this.baseUrl}api/StorageLevels`,
+      level
+    );
   }
 
-  get(): Observable<Array<IStorageLevel>> {
-    return this.http.get<Array<IStorageLevel>>(
-      `${this.baseUrl}api/StorageLevels`
+  update(level: IStorageLevel): Observable<IReponse<number>> {
+    return this.http.put<IReponse<number>>(
+      `${this.baseUrl}api/StorageLevels`,
+      level
     );
+  }
+
+  search(keyword: string | null): Observable<Array<IStorageLevel>> {
+    return this.http.get<Array<IStorageLevel>>(
+      `${this.baseUrl}api/StorageLevels/search${keyword ? '/' + keyword : ''}`
+    );
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}api/StorageLevels/${id}`);
   }
 }

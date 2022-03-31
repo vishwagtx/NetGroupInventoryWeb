@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { InventoryComponent } from './inventory.component';
 import { ItemsService } from './services/items.service';
-import { StorageLevelFormComponent } from './storage-levels/storage-level-form/storage-level-form.component';
+import { StorageLevelFormComponent } from './storage-levels/form-dialog/storage-level-form.component';
 import { SharedModule } from '../shared/shared.module';
 import { StorageLevelsService } from './services/storage-levels.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from '../shared/interceptors/app-http-interceptor';
 import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
+import { ItemsComponent } from './items/items.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
     StorageLevelFormComponent,
     StorageLevelsComponent,
     LeftMenuComponent,
+    ItemsComponent,
   ],
   providers: [
     ItemsService,

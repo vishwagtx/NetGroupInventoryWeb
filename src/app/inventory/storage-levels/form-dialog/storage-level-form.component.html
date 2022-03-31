@@ -1,0 +1,23 @@
+<div class="storage-container">
+  <div class="row">
+    <h3>{{ titleLabel }} Storage Level</h3>
+  </div>
+  <form [formGroup]="levelForm" (ngSubmit)="save($event)">
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Level</mat-label>
+        <input matInput formControlName="level" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <button mat-button color="primary" type="submit">Save</button>
+      <button mat-button color="primary" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

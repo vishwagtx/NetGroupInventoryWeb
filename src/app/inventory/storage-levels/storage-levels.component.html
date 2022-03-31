@@ -1,24 +1,39 @@
 <div class="level-layout">
-  <div *ngIf="storageLevels$ | async as storageLevels" class="level-grid">
-    <table
-      mat-table
-      *ngIf="!!storageLevels"
-      [dataSource]="storageLevels"
-      class="mat-elevation-z8"
-    >
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Level</th>
-        <td mat-cell *matCellDef="let element">{{ element.level }}</td>
-      </ng-container>
+  <div class="row">
+    <h2>Storage levels</h2>
+  </div>
+  <div class="row add-level">
+    <button mat-button color="primary" (click)="add()">Add</button>
+  </div>
+  <div class="row">
+    <div *ngIf="storageLevels$ | async as storageLevels" class="level-grid">
+      <table
+        mat-table
+        *ngIf="!!storageLevels"
+        [dataSource]="storageLevels"
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Level</th>
+          <td mat-cell *matCellDef="let element">{{ element.level }}</td>
+        </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
-      </ng-container>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button (click)="edit(element)">Edit</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
   </div>
 </div>

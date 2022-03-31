@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InventoryComponent } from './inventory.component';
-import { StorageLevelFormComponent } from './storage-levels/storage-level-form/storage-level-form.component';
+import { StorageLevelFormComponent } from './storage-levels/form-dialog/storage-level-form.component';
 import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
 
 const routes: Routes = [
