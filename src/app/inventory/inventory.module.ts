@@ -11,6 +11,7 @@ import { AppHttpInterceptor } from '../shared/interceptors/app-http-interceptor'
 import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { ItemsComponent } from './items/items.component';
+import { ItemFormDialogComponent } from './items/item-form-dialog/item-form-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ItemsComponent } from './items/items.component';
     StorageLevelsComponent,
     LeftMenuComponent,
     ItemsComponent,
+    ItemFormDialogComponent,
   ],
   providers: [
     ItemsService,

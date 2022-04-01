@@ -33,6 +33,11 @@ export class StorageLevelsComponent implements OnInit {
     this.openLevelDialog(level);
   }
 
+  search(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.getStorageLevels(value);
+  }
+
   private openLevelDialog(level: IStorageLevel | null) {
     const dialogRef = this.dialog.open(StorageLevelFormComponent, {
       data: level,

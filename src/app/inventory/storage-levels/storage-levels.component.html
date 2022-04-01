@@ -3,6 +3,10 @@
     <h2>Storage levels</h2>
   </div>
   <div class="row add-level">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="search($event)" />
+    </mat-form-field>
     <button mat-button color="primary" (click)="add()">Add</button>
   </div>
   <div class="row">

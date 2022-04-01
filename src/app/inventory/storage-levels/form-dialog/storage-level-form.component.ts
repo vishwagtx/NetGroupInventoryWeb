@@ -52,6 +52,8 @@ export class StorageLevelFormComponent implements OnInit {
   save(event: Event): void {
     event.preventDefault();
 
+    if (this.levelForm.invalid) return;
+
     const level = {
       id: !!this.data ? this.data.id : null,
       level: this.level.value,

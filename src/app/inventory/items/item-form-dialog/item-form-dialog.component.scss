@@ -1,0 +1,13 @@
+.item-container {
+  min-width: 400px;
+}
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  .upload-img {
+    width: 100px;
+    min-width: 100px;
+  }
+}

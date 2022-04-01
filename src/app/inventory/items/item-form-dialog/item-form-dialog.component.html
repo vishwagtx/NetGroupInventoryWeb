@@ -1,0 +1,49 @@
+<div class="item-container">
+  <div class="row">
+    <h3>{{ titleLabel }} Item</h3>
+  </div>
+  <form [formGroup]="itemForm" (ngSubmit)="save($event)">
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select [formControl]="categoryId"
+          ><mat-option
+            *ngFor="let cat of categories$ | async"
+            [value]="cat.id"
+            >{{ cat.category }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="file-upload">
+        <input
+          hidden="true"
+          id="input-file-id"
+          type="file"
+          (change)="uploadImage($event)"
+        />
+        <label for="input-file-id" class="md-button md-raised md-primary"
+          >Choose Files</label
+        >
+        <img class="upload-img" *ngIf="!!imageUrl" [src]="imageUrl" />
+      </div>
+    </div>
+    <div class="row">
+      <button mat-button color="primary" type="submit">Save</button>
+      <button mat-button color="primary" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
