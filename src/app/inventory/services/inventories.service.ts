@@ -30,4 +30,10 @@ export class InventoriesService {
       inventory
     );
   }
+
+  get(id: number): Observable<IViewInventory> {
+    return this.http.get<IViewInventory>(
+      `${this.baseUrl}api/Inventories/${id}`
+    );
+  }
 }

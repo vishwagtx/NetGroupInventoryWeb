@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InventoriesComponent } from './inventories/inventories.component';
+import { ViewInventoryComponent } from './inventories/view-inventory/view-inventory.component';
 import { InventoryComponent } from './inventory.component';
 import { ItemsComponent } from './items/items.component';
 import { ViewItemComponent } from './items/view-item/view-item.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'items/:id', component: ViewItemComponent },
       { path: '', component: InventoriesComponent },
       { path: 'inventories', component: InventoriesComponent },
+      { path: 'inventories/:id', component: ViewInventoryComponent },
     ],
   },
 ];

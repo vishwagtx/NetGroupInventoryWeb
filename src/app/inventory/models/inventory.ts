@@ -12,5 +12,6 @@ export interface IInventory {
 export interface IViewInventory extends IInventory {
   storageLevel: string;
   item: IExtendItem;
+  createdDateTime: Date;
   modifiedDateTime: Date | null;
 }

@@ -1,1 +1,50 @@
-<p>view-inventory works!</p>
+<div class="view-layout">
+  <div class="flex-row header">
+    <h3>Inventory Details</h3>
+  </div>
+  <div class="form-view" *ngIf="item$ | async as item">
+    <div class="flex-row">
+      <button mat-button color="primary" (click)="edit(item)">Edit</button>
+    </div>
+    <div class="flex-row">
+      <label class="label">Storage Level</label>
+      <p class="value">{{ item.storageLevel }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Item Title</label>
+      <p class="value">{{ item.item?.title }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Item Category</label>
+      <p class="value">{{ item.item.category }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Item Description</label>
+      <p class="value">{{ item.item?.description }}</p>
+    </div>
+    <div class="flex-row" *ngIf="!!item.item?.imageUrl">
+      <label class="label">Item Image</label>
+      <img class="upload-image" [src]="item.item?.imageUrl" />
+    </div>
+    <div class="flex-row">
+      <label class="label">Quantity</label>
+      <p class="value">{{ item.quantity }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Serial Number</label>
+      <p class="value">{{ item.serialNumber }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Note</label>
+      <p class="value">{{ item.note }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Created Date Time</label>
+      <p class="value">{{ item.createdDateTime | date }}</p>
+    </div>
+    <div class="flex-row" *ngIf="!!item.modifiedDateTime">
+      <label class="label">Modified Date Time</label>
+      <p class="value">{{ item.modifiedDateTime | date }}</p>
+    </div>
+  </div>
+</div>
