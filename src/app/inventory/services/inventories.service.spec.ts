@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { InventoriesService } from './inventories.service';
@@ -6,7 +7,10 @@ describe('InventoriesService', () => {
   let service: InventoriesService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [InventoriesService],
+    });
     service = TestBed.inject(InventoriesService);
   });
 

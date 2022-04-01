@@ -1,5 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { StorageLevelsService } from '../../services/storage-levels.service';
 import { StorageLevelFormComponent } from './storage-level-form.component';
 
 describe('StorageLevelFormComponent', () => {
@@ -8,9 +10,14 @@ describe('StorageLevelFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StorageLevelFormComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      providers: [
+        StorageLevelsService,
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: null },
+      ],
+      declarations: [StorageLevelFormComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
