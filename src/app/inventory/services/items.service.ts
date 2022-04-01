@@ -35,4 +35,8 @@ export class ItemsService {
   delete(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}api/Items/${id}`);
   }
+
+  get(id: number): Observable<IViewItem> {
+    return this.http.get<IViewItem>(`${this.baseUrl}api/Items/${id}`);
+  }
 }

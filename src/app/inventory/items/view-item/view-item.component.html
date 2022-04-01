@@ -1,0 +1,34 @@
+<div class="view-layout">
+  <div class="flex-row header">
+    <h3>Item</h3>
+  </div>
+  <div class="form-view" *ngIf="item$ | async as item">
+    <div class="flex-row">
+      <button mat-button color="primary" (click)="edit(item)">Edit</button>
+    </div>
+    <div class="flex-row">
+      <label class="label">Title</label>
+      <p class="value">{{ item.title }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Category</label>
+      <p class="value">{{ item.category }}</p>
+    </div>
+    <div class="flex-row">
+      <label class="label">Description</label>
+      <p class="value">{{ item.description }}</p>
+    </div>
+    <div class="flex-row" *ngIf="!!item.imageUrl">
+      <label class="label">Image</label>
+      <img class="upload-image" [src]="item.imageUrl" />
+    </div>
+    <div class="flex-row">
+      <label class="label">Created Date Time</label>
+      <p class="value">{{ item.createdDateTime | date }}</p>
+    </div>
+    <div class="flex-row" *ngIf="!!item.modifiedDateTime">
+      <label class="label">Modified Date Time</label>
+      <p class="value">{{ item.modifiedDateTime | date }}</p>
+    </div>
+  </div>
+</div>

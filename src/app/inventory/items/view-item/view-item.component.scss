@@ -1,0 +1,22 @@
+.view-layout {
+  width: 100%;
+
+  .label {
+    width: 20%;
+    font-weight: 500;
+  }
+
+  .value {
+    width: 80%;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .upload-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+}

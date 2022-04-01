@@ -12,6 +12,10 @@ import { StorageLevelsComponent } from './storage-levels/storage-levels.componen
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { ItemsComponent } from './items/items.component';
 import { ItemFormDialogComponent } from './items/item-form-dialog/item-form-dialog.component';
+import { ViewItemComponent } from './items/view-item/view-item.component';
+import { InventoriesComponent } from './inventories/inventories.component';
+import { InventoriesService } from './services/inventories.service';
+import { InventoryFormDialogComponent } from './inventories/form-dialog/inventory-form-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +25,15 @@ import { ItemFormDialogComponent } from './items/item-form-dialog/item-form-dial
     LeftMenuComponent,
     ItemsComponent,
     ItemFormDialogComponent,
+    ViewItemComponent,
+    InventoriesComponent,
+    InventoryFormDialogComponent,
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
     ItemsService,
     StorageLevelsService,
-    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
+    InventoriesService,
   ],
   imports: [CommonModule, SharedModule, InventoryRoutingModule],
 })

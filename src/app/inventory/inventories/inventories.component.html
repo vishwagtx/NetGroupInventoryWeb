@@ -1,0 +1,82 @@
+<div class="layout">
+  <div class="row">
+    <h2>Inventory</h2>
+  </div>
+  <div class="row add-item">
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="search($event)" />
+    </mat-form-field> -->
+    <!-- <button mat-button color="primary" (click)="add()">Add</button> -->
+  </div>
+  <div class="row">
+    <div *ngIf="items$ | async as items" class="inventory-grid">
+      <table
+        mat-table
+        *ngIf="!!items"
+        [dataSource]="items"
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="storage level">
+          <th mat-header-cell *matHeaderCellDef>Storage level</th>
+          <td mat-cell *matCellDef="let element">{{ element.storageLevel }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="item">
+          <th mat-header-cell *matHeaderCellDef>Item</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="item-container">
+              <div class="flex-row">
+                <label class="label">Title</label>
+                <p class="value">{{ element.item?.title }}</p>
+              </div>
+              <div class="flex-row">
+                <label class="label">Category</label>
+                <p class="value">{{ element.item?.category }}</p>
+              </div>
+              <div class="flex-row">
+                <label class="label">Description</label>
+                <p class="value">{{ element.item?.description }}</p>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>Image</th>
+          <td mat-cell *matCellDef="let element">
+            <img *ngIf="element.item.imageUrl" [src]="element.item.imageUrl" />
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="serial number">
+          <th mat-header-cell *matHeaderCellDef>Serial Number</th>
+          <td mat-cell *matCellDef="let element">{{ element.serialNumber }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="note">
+          <th mat-header-cell *matHeaderCellDef>Note</th>
+          <td mat-cell *matCellDef="let element">{{ element.note }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <a mat-button [routerLink]="['/inventory/inventories', element.id]"
+              >View</a
+            >
+            <!-- <button mat-button (click)="edit(element)">Edit</button> -->
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

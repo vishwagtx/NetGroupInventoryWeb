@@ -42,6 +42,9 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
+            <a mat-button [routerLink]="['/inventory/items', element.id]"
+              >View</a
+            >
             <button mat-button (click)="edit(element)">Edit</button>
           </td>
         </ng-container>

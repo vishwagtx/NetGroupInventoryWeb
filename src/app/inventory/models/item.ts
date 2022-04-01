@@ -11,3 +11,7 @@ export interface IViewItem extends IItem {
   createdDateTime: Date;
   modifiedDateTime: Date | null;
 }
+
+export interface IExtendItem extends IItem {
+  category: string;
+}
