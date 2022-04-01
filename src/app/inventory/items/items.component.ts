@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { IItem } from '../models/item';
 import { ItemsService } from '../services/items.service';
-import { ItemFormDialogComponent } from './item-form-dialog/item-form-dialog.component';
+import { ItemFormDialogComponent } from './form-dialog/item-form-dialog.component';
 
 @Component({
   selector: 'app-items',

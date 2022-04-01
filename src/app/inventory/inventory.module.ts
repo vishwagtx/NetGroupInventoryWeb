@@ -11,11 +11,12 @@ import { AppHttpInterceptor } from '../shared/interceptors/app-http-interceptor'
 import { StorageLevelsComponent } from './storage-levels/storage-levels.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { ItemsComponent } from './items/items.component';
-import { ItemFormDialogComponent } from './items/item-form-dialog/item-form-dialog.component';
+import { ItemFormDialogComponent } from './items/form-dialog/item-form-dialog.component';
 import { ViewItemComponent } from './items/view-item/view-item.component';
 import { InventoriesComponent } from './inventories/inventories.component';
 import { InventoriesService } from './services/inventories.service';
 import { InventoryFormDialogComponent } from './inventories/form-dialog/inventory-form-dialog.component';
+import { ViewInventoryComponent } from './inventories/view-inventory/view-inventory.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { InventoryFormDialogComponent } from './inventories/form-dialog/inventor
     ViewItemComponent,
     InventoriesComponent,
     InventoryFormDialogComponent,
+    ViewInventoryComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },

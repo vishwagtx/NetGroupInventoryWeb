@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { IItem, IViewItem } from '../../models/item';
 import { ItemsService } from '../../services/items.service';
-import { ItemFormDialogComponent } from '../item-form-dialog/item-form-dialog.component';
+import { ItemFormDialogComponent } from '../form-dialog/item-form-dialog.component';
 
 @Component({
   selector: 'app-view-item',

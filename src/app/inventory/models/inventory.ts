@@ -6,6 +6,7 @@ export interface IInventory {
   itemId: number;
   quantity?: number;
   serialNumber: string;
+  note: string;
 }
 
 export interface IViewInventory extends IInventory {
