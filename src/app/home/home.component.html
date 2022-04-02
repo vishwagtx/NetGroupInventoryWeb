@@ -1,0 +1,19 @@
+<div class="layout">
+  <h4 *ngIf="!authService.isAuthenticated(); else userTile">
+    Welocme to the inventory management system
+  </h4>
+  <ng-template #userTile>
+    <div class="tiles">
+      <div
+        class="tile"
+        *ngIf="authService.isAdministrator()"
+        [routerLink]="['/admin']"
+      >
+        <span> Admin Dashbord </span>
+      </div>
+      <div class="tile" [routerLink]="['/inventory']">
+        <span> Inventory System </span>
+      </div>
+    </div>
+  </ng-template>
+</div>

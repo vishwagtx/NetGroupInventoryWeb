@@ -11,9 +11,10 @@ import { AdminAuthGuard } from './shared/guards/admin-auth.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { SharedModule } from './shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterCallbackComponent],
+  declarations: [AppComponent, RegisterCallbackComponent, HomeComponent],
   imports: [
     CommonModule,
     BrowserModule,
