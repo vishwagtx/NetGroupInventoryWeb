@@ -310,3 +310,8 @@ body {
   display: flex;
   margin: 10px 0;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}

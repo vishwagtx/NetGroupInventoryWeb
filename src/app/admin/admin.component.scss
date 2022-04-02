@@ -1,0 +1,52 @@
+.layout {
+  width: 100%;
+  display: flex;
+
+  table {
+    width: 100%;
+  }
+
+  .admin-grid {
+    width: 60%;
+  }
+
+  .layout {
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    width: 100%;
+
+    .label {
+      font-weight: 500;
+    }
+
+    .value {
+      padding-left: 10px;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+  }
+
+  .right-panel {
+    margin-left: 10px;
+    width: 40%;
+
+    table {
+      width: 100%;
+    }
+  }
+
+  .active-users {
+    width: 400px;
+  }
+}
+
+.pie-chart {
+  width: 300px !important;
+  height: 300px !important;
+}
