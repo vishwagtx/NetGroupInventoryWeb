@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   register(): void {
-    const registerURL = `${environment.openId.authority}/account/register?returnUrl=${environment.appURL}/registerCallback`;
+    const registerURL = `${environment.openId.authority}account/register?returnUrl=${environment.appURL}/registerCallback`;
     document.location.href = registerURL;
   }
 }
